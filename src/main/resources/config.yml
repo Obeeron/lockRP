@@ -1,0 +1,19 @@
+key_material: "STICK"
+
+responses:
+  # Add lock
+  add_lock_success: "§a§lLock added!"
+  add_lock_failure.already_locked: "§cThis door is already locked"
+  create_key_failure.inventory_full: "§cYour inventory is full. Cannot create a key."
+  create_key_info.rename_key: "§7You can change the key's name with /name <key name>"
+
+  # Remove lock
+  remove_lock_success: "§eLock removed."
+  remove_lock_failure.wrong_key: "§cYou can't remove the lock with that key."
+  destroy_lock_success: "§e§lLock destroyed."
+  destroy_lock_failure: "§cThat block is locked, use the correct tool to break it."
+
+  # Unlock
+  unlock_failure.wrong_key: "§cThat key does not match the lock."
+  unlock_failure.no_key: "§cThis seems to be locked..."
+  unlock_success: "§aAccess granted."

@@ -1,0 +1,8 @@
+name: LockRP
+version: '${project.version}'
+main: fr.obeeron.lockrp.LockRP
+api-version: 1.16
+prefix: LockRP
+load: STARTUP
+authors: [ Obeeron ]
+description: Lock containers and doors with keys
