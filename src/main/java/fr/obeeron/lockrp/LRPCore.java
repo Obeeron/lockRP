@@ -198,6 +198,8 @@ public class LRPCore {
         ItemMeta itemMeta = item.getItemMeta();
         if (itemMeta == null)
             return false;
+        if (itemMeta.getPersistentDataContainer().has(LockRP.customItemIdNSK, PersistentDataType.INTEGER))
+            return false;
         String customItemId = itemMeta.getPersistentDataContainer().get(LockRP.customItemIdNSK, PersistentDataType.STRING);
         return customItemId != null && (customItemId.equals(LockRP.UNIVID_KEYRING_EMPTY) || customItemId.equals(LockRP.UNIVID_KEYRING));
     }
