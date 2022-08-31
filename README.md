@@ -11,12 +11,16 @@ It add the possibility to lock/unlock containers and openables by creaing keys.
 ### Recipes
 
 #### Key recipe:  
-  *(1 stick, 1 iron ingot and 3 iron nuggets)*  
+  *(2 iron ingots and 3 iron nuggets)*  
   ![key_recipe](media/key_recipe.png)
 
 #### Key duplicate recipe:  
   *(That recipe is shapeless, you only need a **bound key** and a **blank key**)*  
-  ![key_duplicate](media/key_duplicate_recipe.png)
+  ![key_duplicate_recipe](media/key_duplicate_recipe.png)
+
+#### Keyring recipe:  
+  *(1 chest, 4 chains)*  
+  ![keyring_recipe](media/keyring_recipe.png)
 
 ### Actions
 
@@ -27,8 +31,11 @@ It add the possibility to lock/unlock containers and openables by creaing keys.
     - To remove the lock: **Hold the key** + **SNEAK** + **LEFT_CLICK**.
     - To destroy the lock: Break the lock with a pickaxe (iron, gold, diamond, netherrite), this doesn't break the block.
 - [x] To interact with a locked bock:
-    - Hold the corresponding key while interacting
+    - Just have the corresponding key or keyring in your inventory
 - [x] To copy a key: Use the key duplicate recipe.
+- [x] To store keys in a keyring: **Hold the keyring** + **RIGHT_CLICK** + drag keys into the keyring inventory.
+	![keyring_inventory](media/keyring_inventory.png)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
