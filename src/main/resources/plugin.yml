@@ -5,4 +5,4 @@ api-version: 1.16
 prefix: LockRP
 load: STARTUP
 authors: [ Obeeron ]
-description: Lock containers and doors with keys
+description: Adds keys and keychains to lock containers and doors

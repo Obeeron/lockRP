@@ -6,7 +6,7 @@
 
     <groupId>fr.obeeron</groupId>
     <artifactId>LockRP</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>LockRP</name>
@@ -47,7 +47,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>LockRP-1.0.jar</outputFile>
+                            <outputFile>LockRP-${project.version}.jar</outputFile>
                             <relocations>
                                 <relocation>
                                     <pattern>com.jeff_media.customblockdata.CustomBlockData</pattern>

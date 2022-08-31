@@ -1,9 +1,14 @@
 key_material: "STICK"
 
+keyring:
+  inventory_screen_name: "Keyring"
+  item_name: "Keyring"
+  material: "STICK"
+
 responses:
   # Add lock
   add_lock_success: "§a§lLock added!"
-  add_lock_failure.already_locked: "§cThis door is already locked"
+  add_lock_failure.already_locked: "§cThis block is already locked."
   create_key_failure.inventory_full: "§cYour inventory is full. Cannot create a key."
   create_key_info.rename_key: "§7You can change the key's name with /name <key name>"
 

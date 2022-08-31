@@ -1,20 +1,16 @@
 package fr.obeeron.lockrp.listeners;
 
+import fr.obeeron.lockrp.LRPCore;
 import fr.obeeron.lockrp.LockRP;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
-import org.bukkit.block.PistonMoveReaction;
-import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.type.Door;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Cancellable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class BreakListener implements Listener {
@@ -35,7 +31,7 @@ public class BreakListener implements Listener {
             }
         }
 
-        if (plugin.isLocked(block)) {
+        if (LRPCore.isLocked(block)) {
             event.setCancelled(true);
             tryDestroyLock(block, event.getPlayer());
         }
@@ -62,7 +58,7 @@ public class BreakListener implements Listener {
             switch (block.getPistonMoveReaction()) {
                 case MOVE:
                 case BREAK:
-                    if (plugin.isLocked(block))
+                    if (LRPCore.isLocked(block))
                         event.setCancelled(true);
                     break;
                 default:
@@ -79,7 +75,7 @@ public class BreakListener implements Listener {
             switch (block.getPistonMoveReaction()) {
                 case MOVE:
                 case BREAK:
-                    if (plugin.isLocked(block))
+                    if (LRPCore.isLocked(block))
                         event.setCancelled(true);
                     break;
                 default:
@@ -92,13 +88,12 @@ public class BreakListener implements Listener {
      * Check if the block is a lock and if it is, remove the lock
      * @param block the block to check
      * @param player The player who is breaking the block, null if not a player
-     * @return true if the block is a lock and the lock has been removed, false otherwise
      */
     private void onBlockBreak(Block block, Player player) {
         // =============================
         // Handle direct break of a lock
         // =============================
-        if (plugin.isLocked(block))
+        if (LRPCore.isLocked(block))
             tryDestroyLock(block, player);
 
         // =============================
@@ -123,13 +118,13 @@ public class BreakListener implements Listener {
 
     public void tryDestroyLock(Block block, Player player) {
         if (player == null || canBreakLock(player)) {
-            plugin.unbindLock(block);
+            LRPCore.unbindLock(block);
             block.getWorld().playSound(block.getLocation(), Sound.BLOCK_CHAIN_BREAK, 1, 0);
             if (player != null)
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(plugin.config.getString("responses.destroy_lock_success")));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(LockRP.config.getString("responses.destroy_lock_success")));
         }
         else
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(plugin.config.getString("responses.destroy_lock_failure")));
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(LockRP.config.getString("responses.destroy_lock_failure")));
     }
 
     private boolean canBreakLock(Player player) {
@@ -139,7 +134,8 @@ public class BreakListener implements Listener {
     }
 
     private boolean isLockBreaker(ItemStack itemInMainHand) {
-        return itemInMainHand.getType() == Material.DIAMOND_PICKAXE ||
+        return itemInMainHand.getType() == Material.NETHERITE_PICKAXE ||
+                itemInMainHand.getType() == Material.DIAMOND_PICKAXE ||
                 itemInMainHand.getType() == Material.IRON_PICKAXE ||
                 itemInMainHand.getType() == Material.GOLDEN_PICKAXE;
     }
