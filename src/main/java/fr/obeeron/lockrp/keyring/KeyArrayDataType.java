@@ -1,6 +1,5 @@
 package fr.obeeron.lockrp.keyring;
 
-import org.apache.commons.lang.SerializationUtils;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataType;
@@ -37,11 +36,11 @@ public class KeyArrayDataType implements PersistentDataType<byte[], ItemStack[]>
 
     @Override
     public ItemStack[] fromPrimitive(byte[] primitive, PersistentDataAdapterContext context) {
-        try{
+        try {
             InputStream is = new ByteArrayInputStream(primitive);
             BukkitObjectInputStream ois = new BukkitObjectInputStream(is);
             return (ItemStack[]) ois.readObject();
-        }catch (IOException | ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;

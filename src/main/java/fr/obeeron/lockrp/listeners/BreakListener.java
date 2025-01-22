@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class BreakListener implements Listener {
 
+    @SuppressWarnings("unused")
     private final LockRP plugin;
 
     public BreakListener(LockRP plugin) {

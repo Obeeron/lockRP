@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class InteractListener implements Listener {
 
+    @SuppressWarnings("unused")
     private final LockRP plugin;
 
     public InteractListener(LockRP plugin) {
@@ -33,7 +34,7 @@ public class InteractListener implements Listener {
             return;
 
         // Using a Keyring
-        if(LRPCore.isKeyring(item)) {
+        if (LRPCore.isKeyring(item)) {
             onKeyringInteract(player, item, event);
             return;
         }
@@ -53,17 +54,16 @@ public class InteractListener implements Listener {
         boolean isHoldingBoundKey = isHoldingKey && LRPCore.isBoundKey(item);
 
         event.setCancelled(true);
-        if (player.isSneaking() && action == Action.RIGHT_CLICK_BLOCK && isHoldingKey )
+        if (player.isSneaking() && action == Action.RIGHT_CLICK_BLOCK && isHoldingKey)
             LRPCore.tryCreateLock(player, block, item);
-        else if(LRPCore.isLocked(block)){
-            if(action == Action.RIGHT_CLICK_BLOCK)
+        else if (LRPCore.isLocked(block)) {
+            if (action == Action.RIGHT_CLICK_BLOCK)
                 LRPCore.tryInteract(player, block, item, event);
             else if (isHoldingBoundKey && player.isSneaking())
                 LRPCore.tryRemoveLock(player, block, item);
             else
                 event.setCancelled(false);
-        }
-        else
+        } else
             event.setCancelled(false);
     }
 

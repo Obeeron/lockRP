@@ -22,7 +22,6 @@ import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Objects;
 import java.util.Random;
-import java.util.concurrent.locks.Lock;
 
 public class LRPCore {
     private static LockRP plugin;
